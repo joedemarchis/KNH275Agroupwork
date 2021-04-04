@@ -13,3 +13,6 @@ View(df_drafts)
 #player stats from 1989-2018 can change "totals" to "per_game" if needed  
 player_stats<-bref_players_stats(seasons = 1989:2018, tables = c("totals"))
 View(player_stats)
+#filtering out players not drafted inbetween 1989-2018
+drafted_player_stats <- inner_join(df_drafts,player_stats, by = "namePlayer")  
+View(drafted_player_stats)
