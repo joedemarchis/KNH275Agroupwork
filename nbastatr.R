@@ -6,10 +6,10 @@ if(!require(dplyr)) install.packages("dplyr")
 library(dplyr)
 if(!require(plotly)) install.packages("plotly")
 library(plotly)
-#draft pos for players from 1989-2018
+#draft position for players from 1989-2018
 df_drafts <-
   drafts(draft_years = 1989:2018, nest_data = FALSE, return_message = TRUE)
 View(df_drafts)
-#player stats from 1989-2018 can change "totals" to "per_game" if needed
+#player stats from 1989-2018 can change "totals" to "per_game" if needed  
 player_stats<-bref_players_stats(seasons = 1989:2018, tables = c("totals"))
 View(player_stats)
