@@ -1,3 +1,4 @@
+#line 2 may not be needed
 devtools::install_github("abresler/nbastatR")
 library(nbastatR)
 if(!require(ggplot2)) install.packages("ggplot2")
