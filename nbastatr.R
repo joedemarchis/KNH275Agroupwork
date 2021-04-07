@@ -1,7 +1,7 @@
 #line 7-14 loads packages we need as of 4/7/21 
 #feel free to add packages
 #DO NOT RUN LINES 7 AND 8 
-#IT TAKES ALL THE RAM ON RSTUDIO.CLOUD.
+#IT TAKES up ALL THE RAM ON RSTUDIO.CLOUD.
 #only run them if working with rstudio desktop
 #line 15-27 shows how I got the data needed
   devtools::install_github("abresler/nbastatR")
