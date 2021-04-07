@@ -23,6 +23,7 @@ complete_stats<-select(drafted_player_complete_stats,yearDraft,numberPickOverall
 View(complete_stats)
 #saving as excel
 write.csv(complete_stats, "draftedstats.csv")
+#start off data viz code
 #reading the csv is necessary because the package is buggy on rstudio.cloud
 draftedstats<-read.csv("draftedstats.csv")
 View(draftedstats)
