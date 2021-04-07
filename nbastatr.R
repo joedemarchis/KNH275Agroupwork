@@ -7,6 +7,8 @@ if(!require(dplyr)) install.packages("dplyr")
 library(dplyr)
 if(!require(plotly)) install.packages("plotly")
 library(plotly)
+install.packages("xlsx")
+library(xlsx)
 #draft position for players from 1989-2018
 df_drafts <-
   drafts(draft_years = 1989:2018, nest_data = FALSE, return_message = TRUE)
@@ -18,9 +20,9 @@ View(player_stats)
 drafted_player_complete_stats <- inner_join(df_drafts,player_stats, by = "namePlayer")  
 View(drafted_player_complete_stats)
 #saving as excel
-write.table(df_drafts, file = "df_drafts.csv",
-            sep = "\t", row.names = F)
-write.table(player_stats, file = "player_stats.csv",
-            sep = "\t", row.names = F)
-write.table(drafted_player_complete_stats, file = "drafted_player_complete_stats.csv",
-            sep = "\t", row.names = F)
+write.xlsx(x = df_drafts,                       
+           file = "draftdata.xlsx")
+write.xlsx(x = player_stats,                       
+           file = "playerstats.xlsx")
+write.xlsx(x = drafted_player_complete_stats,                       
+           file = "complete_stats.xlsx")
