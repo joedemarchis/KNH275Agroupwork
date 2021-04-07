@@ -1,5 +1,9 @@
-#line 3-10 loads packages we need as of 4/7/21 (feel free to add packages)
-#line 11-25 ishows how I got the data we need for the project
+#line 7-14 loads packages we need as of 4/7/21 
+#feel free to add packages
+#DO NOT RUN LINES 5 AND 6 
+#IT TAKES ALL THE RAM ON RSTUDIO.CLOUD.
+#only run if working with rstudio desktop
+#line 15-27 shows how I got the data needed
   devtools::install_github("abresler/nbastatR")
   library(nbastatR)
   if(!require(ggplot2)) install.packages("ggplot2")
@@ -16,10 +20,10 @@ View(df_drafts)
 player_stats<-bref_players_stats(seasons = 1989:2018, tables = c("totals"))
 View(player_stats)
 #filtering out players not drafted between 1989-2018
-drafted_player_complete_stats <- inner_join(df_drafts,player_stats, by = "namePlayer")  
-View(drafted_player_complete_stats)
+drafted_player_stats <- inner_join(df_drafts,player_stats, by = "namePlayer")  
+View(drafted_player_stats)
 #filtering stats we need
-complete_stats<-select(drafted_player_complete_stats,yearDraft,numberPickOverall,numberRound,numberRoundPick,namePlayer,nameTeam,slugTeamBREF,slugSeason,slugPosition,agePlayer,countGames,pctFG,pctFG3,pctFG2,pctEFG,pctFT,ftmTotals,trbTotals,astTotals,stlTotals,blkTotals,tovTotals,pfTotals,ptsTotals)
+complete_stats<-select(drafted_player_stats,yearDraft,numberPickOverall,numberRound,numberRoundPick,namePlayer,nameTeam,slugTeamBREF,slugSeason,slugPosition,agePlayer,countGames,pctFG,pctFG3,pctFG2,pctEFG,pctFT,ftmTotals,trbTotals,astTotals,stlTotals,blkTotals,tovTotals,pfTotals,ptsTotals)
 View(complete_stats)
 #saving as excel
 write.csv(complete_stats, "draftedstats.csv")
