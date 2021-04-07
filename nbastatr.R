@@ -1,4 +1,5 @@
-  #line 2 may not be needed
+#line 3-10 loads packages we need
+#line 11-25 ishows how I got the data we need for the project
   devtools::install_github("abresler/nbastatR")
   library(nbastatR)
   if(!require(ggplot2)) install.packages("ggplot2")
@@ -22,3 +23,6 @@ complete_stats<-select(drafted_player_complete_stats,yearDraft,numberPickOverall
 View(complete_stats)
 #saving as excel
 write.csv(complete_stats, "draftedstats.csv")
+#reading the csv is necessary because the package is buggy on rstudio.cloud
+draftedstats<-read.csv("draftedstats.csv")
+View(draftedstats)
