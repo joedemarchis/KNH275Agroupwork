@@ -1,4 +1,4 @@
-#line 3-10 loads packages we need
+#line 3-10 loads packages we need as of 4/7/21 (feel free to add packages)
 #line 11-25 ishows how I got the data we need for the project
   devtools::install_github("abresler/nbastatR")
   library(nbastatR)
