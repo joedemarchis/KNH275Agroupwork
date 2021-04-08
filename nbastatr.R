@@ -1,9 +1,11 @@
-#line 7-14 loads packages we need as of 4/7/21 
+#line 9-16 loads packages we need as of 4/7/21 
 #feel free to add packages
-#DO NOT RUN LINES 7 AND 8 
+#DO NOT RUN LINES 9 AND 10 
 #IT TAKES up ALL THE RAM ON RSTUDIO.CLOUD.
 #only run them if working with rstudio desktop
-#line 15-27 shows how I got the data needed
+#line 17-29 shows how I got the data needed
+#There are going to be some mistakes due to the data size
+#For example look at Glen rice in "draftedstats"
   devtools::install_github("abresler/nbastatR")
   library(nbastatR)
   if(!require(ggplot2)) install.packages("ggplot2")
@@ -12,14 +14,14 @@
   library(dplyr)
   if(!require(plotly)) install.packages("plotly")
   library(plotly)
-#draft position for players from 1989-2018
+#draft position for players from 2004-2018
 df_drafts <-
-  drafts(draft_years = 1989:2018, nest_data = FALSE, return_message = TRUE)
+  drafts(draft_years = 2004:2018, nest_data = FALSE, return_message = TRUE)
 View(df_drafts)
 #player stats from 1989-2018 can change "totals" to "per_game" if needed  
-player_stats<-bref_players_stats(seasons = 1989:2018, tables = c("totals"))
+player_stats<-bref_players_stats(seasons = 2004:2018, tables = c("totals"))
 View(player_stats)
-#filtering out players not drafted between 1989-2018
+#filtering out players not drafted between 2004-2018
 drafted_player_stats <- inner_join(df_drafts,player_stats, by = "namePlayer")  
 View(drafted_player_stats)
 #filtering stats we need
@@ -31,3 +33,5 @@ write.csv(complete_stats, "draftedstats.csv")
 #reading the csv is necessary because the package is buggy on rstudio.cloud
 draftedstats<-read.csv("draftedstats.csv")
 View(draftedstats)
+
+
