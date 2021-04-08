@@ -1,9 +1,9 @@
-#line 9-16 loads packages we need as of 4/7/21 
+#lines 9-16 loads packages we need as of 4/7/21 
 #feel free to add packages
 #DO NOT RUN LINES 9 AND 10 
 #IT TAKES up ALL THE RAM ON RSTUDIO.CLOUD.
 #only run them if working with rstudio desktop
-#line 17-29 shows how I got the data needed
+#lines 17-29 shows how I got the data needed
 #There are going to be some mistakes due to the data size
 #For example look at Glen rice in "draftedstats"
   devtools::install_github("abresler/nbastatR")
